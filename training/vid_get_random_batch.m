@@ -44,6 +44,7 @@ function [imout_z, imout_x, labels, sizes_z, sizes_x] = vid_get_random_batch(imd
     % it just defines size of an epoch and the type of batch (train/val).
     ids_set = find(imdb_video.set==batch_set);
     % sample one video for each pair
+    % set 'Replace' to true, if we have a small set of data
     rnd_videos = datasample(ids_set, batch_size, 'Replace', false);
     ids_pairs = rnd_videos(1:batch_size);
     % Initialize pairs
